@@ -3,7 +3,7 @@ var request = require('request');
 var url = require('url');
 var compression = require('compression');
 
-var port = 3001;
+var port = (process.env.VCAP_APP_PORT || 3000);
 
 var app = express();
 app.use(compression());
