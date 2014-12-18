@@ -1,6 +1,9 @@
 {
   "name": "postman-node",
   "version": "0.1.0",
+  "scripts": {
+    "start": "node index.js"
+  },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-handlebars": "~0.5.6",
