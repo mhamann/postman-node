@@ -2002,11 +2002,11 @@ pm.request = {
         var originalUrl = $('#url').val(); //Store this for saving the request
         var url = pm.request.encodeUrl(pm.request.url);
         var method = pm.request.method.toUpperCase();
-        var originalData = pm.request.body.getData(true);
+        var originalData = pm.request.body.getData(true);        
 
         //Start setting up XHR
         var xhr = new XMLHttpRequest();
-        xhr.open(method, url, true); //Open the XHR request. Will be sent later
+        xhr.open(method, '/api/request', true); //Open the XHR request. Will be sent later
         xhr.onreadystatechange = function (event) {
             pm.request.response.load(event.target);
         };
@@ -2018,6 +2018,14 @@ pm.request = {
 
         xhr.responseType = responseRawDataType;
         var headers = pm.request.getXhrHeaders(headers);
+        
+        // Inject URL target into headers for pass-thru
+        headers.push({
+			key: "Target-Url",
+			name: "Target-Url",
+			value: url
+		});
+        
         for (var i = 0; i < headers.length; i++) {
             xhr.setRequestHeader(headers[i].name, headers[i].value);
         }

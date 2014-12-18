@@ -19,3 +19,4 @@ postman.sublime-workspace
 tests/chromedriver.log
 versions/
 build/
+venv/
