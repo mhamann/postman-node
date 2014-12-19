@@ -107,9 +107,11 @@ pm.bannedHeaders = [
 ];
 
 // IndexedDB implementations still use API prefixes
-var indexedDB = window.indexedDB || // Use the standard DB API
-    window.mozIndexedDB || // Or Firefox's early version of it
-    window.webkitIndexedDB;            // Or Chrome's early version
+if(!('indexedDB' in window)) {
+	var indexedDB = window.indexedDB || 	// Use the standard DB API
+					window.mozIndexedDB ||  // Or Firefox's early version of it
+					window.webkitIndexedDB; // Or Chrome's early version
+}
 // Firefox does not prefix these two:
 var IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction;
 var IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange;
