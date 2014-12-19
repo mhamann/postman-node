@@ -28,8 +28,6 @@ app.all('/api/request', function(req, res) {
     // Transform some headers to match the request we're sending
     req.headers['host'] = targetUrl.host;
 
-    //console.error(req.headers);
-
     var proxy = request({
         method: req.method,
         url: targetUrl,
@@ -50,11 +48,8 @@ app.all('/api/request', function(req, res) {
             res.setHeader(key, resp.headers[key]);
         }
 
-
         res.status(resp.statusCode).send(body);
     });
-
-    console.log(proxy.headers);
 
 });
 
