@@ -1,17 +1,14 @@
-Quick links
+Postman for Node.js
 =======
-- Homepage - http://www.getpostman.com
+- Homepage (Google Chrome app) - http://www.getpostman.com
 - Blog (Tutorials/Updates) - http://blog.getpostman.com
-- Packaged app (v0.9.6) - https://chrome.google.com/webstore/detail/postman-rest-client/fhbjgbiflinjbdggehcddcbncdddomop
-- Jetpacks for Postman - http://blog.getpostman.com/index.php/2014/01/16/ridiculously-easy-api-testing-introducing-jetpacks-for-postman/
 - Documentation - http://www.getpostman.com/docs/
-- Interceptor - https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo
-- Donate - https://gumroad.com/l/wqbB
 
-About Postman
+About Postman for Node.js
 =======
-Postman helps you be more efficient while working with APIs. Postman is a scratch-your-own-itch project. The need for it arose while one of the developers was creating an API for his project. After looking around for a number of tools, nothing felt just right. The primary features added were a history of sent requests and collections.
-A number of other features have been added since the initial release. A small list is below. To see a fancier page and a video tutorial, check out http://www.getpostman.com
+Postman for Node.js is a fork of the popular Postman app for Google Chrome. Its goal is to help you be more efficient while working with HTTP APIs.
+
+While the original Postman ran only in your local browser, Postman for Node.js runs on a Node.js server, which means it can be deployed anywhere for the purpose of providing a SaaS solution for testing APIs. For example, Postman can now be used to test APIs that otherwise might be inaccessible due to firewall restrictions.
 
 Features
 ========
@@ -36,29 +33,33 @@ Document and share APIs.
 - Document requests inside collections. You can even store entire HTML notes. Postman uses Bootstrap so you can use it too to style your notes.
 - Download and share collections with your team of developers.
 
-Installing the zip file
+Installing
 =========================
 
-If you downloaded the Postman zip file here is what you need to do to install it as a developer extension:
+Postman for Node should run easily in any Node.js capable environment.
 
-1. Go to Tools > Extensions inside Chrome by clicking on the wrench icon on top right.
-2. Select "Load unpacked extension"
-3. Select the "chrome" folder with manifest.json in it's root
-4. Postman will be installed as a developer extension. The installation from the Chrome Web Store will remain independent with all your data.
+Running locally
+-------------------------
+1. `git clone` this repository
+2. `npm install` to grab all of the dependencies
+3. `npm start` to run the app
+4. Launch a browser and visit `http://localhost:3000`
+ 
+Postman for Node should also run more or less unmodified on Platform-as-a-Service (PaaS) providers that support Node.js natively.
 
 Building and Developing
 =========================
 1. Install the dependencies
-<pre>
-sudo npm install -g grunt grunt-cli
-</pre>
+	```
+	sudo npm install -g grunt grunt-cli
+	```
+
 2. Generate the template.js and request.js files by running grunt. You can watch the folder for changes using:
-<pre>
+	```
 	grunt watch
-</pre>
-3. For misc. grunt tasks, look at grunt.js.
+	```
+3. For misc. grunt tasks, take a look at `grunt.js`.
 
 Submitting bugs
 ===============
-
-Please add the Postman version along with your operating system and Chrome version along with bug requests. 
+Simply open a new issue at: https://github.com/mhamann/postman-node/issues
